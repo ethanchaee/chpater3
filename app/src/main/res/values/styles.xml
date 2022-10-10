@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="subTitle">
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">30dp</item>
+    </style>
+</resources>
