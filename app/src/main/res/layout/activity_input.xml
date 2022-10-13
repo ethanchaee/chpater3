@@ -33,7 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewComplete"
+                android:id="@+id/completeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="완료"
@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/bloodTypeTextView" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/warningTextView"
                 style="@style/subTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 app:layout_constraintGuide_percent="0.35" />
 
             <EditText
-                android:id="@+id/editTextName"
+                android:id="@+id/nameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -108,14 +108,14 @@
                 app:layout_constraintTop_toTopOf="@+id/bloodTypeTextView">
 
                 <RadioButton
-                    android:id="@+id/radioButtonPlus"
+                    android:id="@+id/plusRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="Rh+" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonMinus"
+                    android:id="@+id/minusRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rh-" />
@@ -132,7 +132,7 @@
                 app:layout_constraintTop_toTopOf="@+id/radioGroup" />
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/phoneEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -147,10 +147,10 @@
                 android:layout_height="wrap_content"
                 android:text="주의사항을 노출"
                 app:layout_constraintStart_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toTopOf="@+id/textView3" />
+                app:layout_constraintTop_toTopOf="@+id/warningTextView" />
 
             <EditText
-                android:id="@+id/editTextWarning"
+                android:id="@+id/warningEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"

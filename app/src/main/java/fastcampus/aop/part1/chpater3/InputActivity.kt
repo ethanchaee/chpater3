@@ -2,6 +2,7 @@ package fastcampus.aop.part1.chpater3
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -21,14 +22,16 @@ class InputActivity : AppCompatActivity() {
         )
 
         binding.checkBox.setOnCheckedChangeListener { _, isChecked ->
-            binding.editTextWarning.isVisible = isChecked
+            binding.warningEditText.isVisible = isChecked
         }
 
-        binding.textViewComplete.setOnClickListener {
+        binding.completeTextView.setOnClickListener {
+            Log.d("bloodType", getBloodType())
+
             Intent(this, MainActivity::class.java).apply {
-                putExtra("name", binding.editTextName.text.toString())
+                putExtra("name", binding.nameEditText.text)
                 putExtra("bloodType", getBloodType())
-                putExtra("phoneNumber", binding.editTextPhone.text.toString())
+                putExtra("phoneNumber", binding.phoneEditText.text)
                 putExtra("warning", getWarning())
                 startActivity(this)
             }
@@ -36,21 +39,13 @@ class InputActivity : AppCompatActivity() {
     }
 
     private fun getBloodType(): String {
-        val bloodTypeSign = if (binding.radioGroup.checkedRadioButtonId == R.id.radioButtonPlus) {
-            "+"
-        } else {
-            "-"
-        }
-
+        val bloodTypeSign =
+            if (binding.radioGroup.checkedRadioButtonId == R.id.plusRadioButton) "+" else "-"
         val bloodTypeAlphabet = binding.bloodTypeSpinner.selectedItem
 
         return "$bloodTypeSign$bloodTypeAlphabet"
     }
 
-    private fun getWarning() =
-        if (binding.checkBox.isSelected) {
-            binding.editTextWarning.toString()
-        } else {
-            ""
-        }
+    private fun getWarning() = if (binding.checkBox.isSelected) binding.warningEditText.text else ""
+
 }

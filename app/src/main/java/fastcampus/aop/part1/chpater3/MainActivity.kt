@@ -17,7 +17,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, InputActivity::class.java)
             startActivity(intent)
         }
-
-        binding.nameTextView.text = intent.getStringExtra("name")
     }
 }
