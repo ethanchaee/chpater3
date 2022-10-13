@@ -3,6 +3,7 @@ package fastcampus.aop.part1.chpater3
 import android.content.Context
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import fastcampus.aop.part1.chpater3.databinding.ActivityInputBinding
@@ -42,12 +43,13 @@ class InputActivity : AppCompatActivity() {
         if (binding.checkBox.isChecked) "${binding.warningEditText.text}" else ""
 
     private fun saveData() {
-        with(getSharedPreferences("userInformation", Context.MODE_PRIVATE).edit()) {
-            putString("name", "${binding.nameEditText.text}")
-            putString("bloodType", getBloodType())
-            putString("phoneNumber", "${binding.phoneEditText.text}")
-            putString("warning", getWarning())
+        with(getSharedPreferences(USER_INFORMATION, Context.MODE_PRIVATE).edit()) {
+            putString(NAME, "${binding.nameEditText.text}")
+            putString(BLOOD_TYPE, getBloodType())
+            putString(EMERGENCY_CONTACT_NUMBER, "${binding.phoneEditText.text}")
+            putString(WARNING, getWarning())
             apply()
         }
+        Toast.makeText(this, "저장을 완료했습니다.", Toast.LENGTH_SHORT).show()
     }
 }

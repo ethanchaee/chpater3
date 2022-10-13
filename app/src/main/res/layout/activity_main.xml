@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="32dp">
+    android:padding="32dp"
+    tools:context=".MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -73,40 +73,50 @@
         style="@style/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/nameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/nameTextView"
-        app:layout_constraintBottom_toBottomOf="@id/nameTextView"
         tools:text="이름" />
 
     <TextView
         android:id="@+id/bloodTypeValueTextView"
+        style="@style/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/body"
+        app:layout_constraintBottom_toBottomOf="@id/bloodTypeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/bloodTypeTextView"
-        app:layout_constraintBottom_toBottomOf="@id/bloodTypeTextView"
         tools:text="A+" />
 
     <TextView
         android:id="@+id/emergencyContactValueTextView"
+        style="@style/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/body"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/emergencyContactTextView"
         tools:text="000-0000-0000" />
 
     <TextView
         android:id="@+id/warningValueTextView"
+        style="@style/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/body"
+        app:layout_constraintBottom_toBottomOf="@id/warningTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toEndOf="@id/warningTextView"
         app:layout_constraintTop_toTopOf="@id/warningTextView"
-        app:layout_constraintBottom_toBottomOf="@id/warningTextView"
-        tools:text="주의사항을 알려주세요"
-        app:layout_constraintHorizontal_bias="1" />
+        tools:text="주의사항을 알려주세요" />
+
+    <TextView
+        android:id="@+id/resetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="초기화"
+        android:textColor="#E91E63"
+        app:layout_constraintBottom_toBottomOf="@id/titleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titleTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
