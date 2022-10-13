@@ -1,8 +1,7 @@
 package fastcampus.aop.part1.chpater3
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -26,15 +25,8 @@ class InputActivity : AppCompatActivity() {
         }
 
         binding.completeTextView.setOnClickListener {
-            Log.d("bloodType", getBloodType())
-
-            Intent(this, MainActivity::class.java).apply {
-                putExtra("name", binding.nameEditText.text)
-                putExtra("bloodType", getBloodType())
-                putExtra("phoneNumber", binding.phoneEditText.text)
-                putExtra("warning", getWarning())
-                startActivity(this)
-            }
+            saveData()
+            finish()
         }
     }
 
@@ -46,6 +38,16 @@ class InputActivity : AppCompatActivity() {
         return "$bloodTypeSign$bloodTypeAlphabet"
     }
 
-    private fun getWarning() = if (binding.checkBox.isSelected) binding.warningEditText.text else ""
+    private fun getWarning() =
+        if (binding.checkBox.isChecked) "${binding.warningEditText.text}" else ""
 
+    private fun saveData() {
+        with(getSharedPreferences("userInformation", Context.MODE_PRIVATE).edit()) {
+            putString("name", "${binding.nameEditText.text}")
+            putString("bloodType", getBloodType())
+            putString("phoneNumber", "${binding.phoneEditText.text}")
+            putString("warning", getWarning())
+            apply()
+        }
+    }
 }
